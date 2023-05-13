@@ -7,23 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC878DA12A0FA20600603D7C /* UIView+additionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DA02A0FA20600603D7C /* UIView+additionals.swift */; };
+		BC878DA42A0FA38900603D7C /* GATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DA32A0FA38900603D7C /* GATableViewCell.swift */; };
+		BC878DA72A0FB37400603D7C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC878DA62A0FB37400603D7C /* SnapKit */; };
+		BC878DAF2A0FF09000603D7C /* GAImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DAE2A0FF09000603D7C /* GAImages.swift */; };
+		BC878DB22A0FFA9300603D7C /* GAAdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DB12A0FFA9300603D7C /* GAAdditionalInfoView.swift */; };
+		BC878DB42A100B7400603D7C /* GAColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DB32A100B7400603D7C /* GAColors.swift */; };
 		BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D882A0E3C2500317225 /* AppDelegate.swift */; };
 		BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */; };
-		BCD35D8D2A0E3C2500317225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D8C2A0E3C2500317225 /* ViewController.swift */; };
-		BCD35D902A0E3C2500317225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D8E2A0E3C2500317225 /* Main.storyboard */; };
 		BCD35D922A0E3C2700317225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D912A0E3C2700317225 /* Assets.xcassets */; };
 		BCD35D952A0E3C2700317225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D932A0E3C2700317225 /* LaunchScreen.storyboard */; };
+		BCD35D9E2A0E41D300317225 /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D9D2A0E41D300317225 /* CountriesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC878DA02A0FA20600603D7C /* UIView+additionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+additionals.swift"; sourceTree = "<group>"; };
+		BC878DA32A0FA38900603D7C /* GATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATableViewCell.swift; sourceTree = "<group>"; };
+		BC878DAE2A0FF09000603D7C /* GAImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAImages.swift; sourceTree = "<group>"; };
+		BC878DB12A0FFA9300603D7C /* GAAdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAAdditionalInfoView.swift; sourceTree = "<group>"; };
+		BC878DB32A100B7400603D7C /* GAColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAColors.swift; sourceTree = "<group>"; };
 		BCD35D852A0E3C2500317225 /* Geographic atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geographic atlas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD35D882A0E3C2500317225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCD35D8C2A0E3C2500317225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BCD35D8F2A0E3C2500317225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD35D912A0E3C2700317225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD35D942A0E3C2700317225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCD35D962A0E3C2700317225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCD35D9D2A0E41D300317225 /* CountriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +40,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC878DA72A0FB37400603D7C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC878D9F2A0FA1DD00603D7C /* Extensions+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BC878DA02A0FA20600603D7C /* UIView+additionals.swift */,
+			);
+			path = "Extensions+Helpers";
+			sourceTree = "<group>";
+		};
+		BC878DA22A0FA34B00603D7C /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				BC878DA32A0FA38900603D7C /* GATableViewCell.swift */,
+				BC878DB12A0FFA9300603D7C /* GAAdditionalInfoView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		BC878DB02A0FF19300603D7C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BC878DAE2A0FF09000603D7C /* GAImages.swift */,
+				BC878DB32A100B7400603D7C /* GAColors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		BCD35D7C2A0E3C2500317225 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +92,25 @@
 		BCD35D872A0E3C2500317225 /* Geographic atlas */ = {
 			isa = PBXGroup;
 			children = (
+				BC878DA22A0FA34B00603D7C /* CustomViews */,
+				BC878D9F2A0FA1DD00603D7C /* Extensions+Helpers */,
+				BCD35D9C2A0E3E9700317225 /* Sources */,
+				BC878DB02A0FF19300603D7C /* Constants */,
 				BCD35D882A0E3C2500317225 /* AppDelegate.swift */,
 				BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */,
-				BCD35D8C2A0E3C2500317225 /* ViewController.swift */,
-				BCD35D8E2A0E3C2500317225 /* Main.storyboard */,
 				BCD35D912A0E3C2700317225 /* Assets.xcassets */,
 				BCD35D932A0E3C2700317225 /* LaunchScreen.storyboard */,
 				BCD35D962A0E3C2700317225 /* Info.plist */,
 			);
 			path = "Geographic atlas";
+			sourceTree = "<group>";
+		};
+		BCD35D9C2A0E3E9700317225 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BCD35D9D2A0E41D300317225 /* CountriesListViewController.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +129,9 @@
 			dependencies = (
 			);
 			name = "Geographic atlas";
+			packageProductDependencies = (
+				BC878DA62A0FB37400603D7C /* SnapKit */,
+			);
 			productName = "Geographic atlas";
 			productReference = BCD35D852A0E3C2500317225 /* Geographic atlas.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +160,9 @@
 				Base,
 			);
 			mainGroup = BCD35D7C2A0E3C2500317225;
+			packageReferences = (
+				BC878DA52A0FB37400603D7C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = BCD35D862A0E3C2500317225 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +179,6 @@
 			files = (
 				BCD35D952A0E3C2700317225 /* LaunchScreen.storyboard in Resources */,
 				BCD35D922A0E3C2700317225 /* Assets.xcassets in Resources */,
-				BCD35D902A0E3C2500317225 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +189,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD35D8D2A0E3C2500317225 /* ViewController.swift in Sources */,
+				BC878DA12A0FA20600603D7C /* UIView+additionals.swift in Sources */,
+				BCD35D9E2A0E41D300317225 /* CountriesListViewController.swift in Sources */,
 				BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */,
+				BC878DB42A100B7400603D7C /* GAColors.swift in Sources */,
+				BC878DAF2A0FF09000603D7C /* GAImages.swift in Sources */,
+				BC878DA42A0FA38900603D7C /* GATableViewCell.swift in Sources */,
+				BC878DB22A0FFA9300603D7C /* GAAdditionalInfoView.swift in Sources */,
 				BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +203,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BCD35D8E2A0E3C2500317225 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCD35D8F2A0E3C2500317225 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCD35D932A0E3C2700317225 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +340,9 @@
 				INFOPLIST_FILE = "Geographic atlas/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +368,9 @@
 				INFOPLIST_FILE = "Geographic atlas/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +406,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC878DA52A0FB37400603D7C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC878DA62A0FB37400603D7C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC878DA52A0FB37400603D7C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCD35D7D2A0E3C2500317225 /* Project object */;
 }
