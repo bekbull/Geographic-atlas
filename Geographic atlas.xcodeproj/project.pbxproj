@@ -13,6 +13,8 @@
 		BC878DAF2A0FF09000603D7C /* GAImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DAE2A0FF09000603D7C /* GAImages.swift */; };
 		BC878DB22A0FFA9300603D7C /* GAAdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DB12A0FFA9300603D7C /* GAAdditionalInfoView.swift */; };
 		BC878DB42A100B7400603D7C /* GAColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DB32A100B7400603D7C /* GAColors.swift */; };
+		BCA304A72A12988E002557AF /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A62A12988E002557AF /* CountryDetailsViewController.swift */; };
+		BCA304A92A1332E0002557AF /* GADetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */; };
 		BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D882A0E3C2500317225 /* AppDelegate.swift */; };
 		BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */; };
 		BCD35D922A0E3C2700317225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D912A0E3C2700317225 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		BC878DAE2A0FF09000603D7C /* GAImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAImages.swift; sourceTree = "<group>"; };
 		BC878DB12A0FFA9300603D7C /* GAAdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAAdditionalInfoView.swift; sourceTree = "<group>"; };
 		BC878DB32A100B7400603D7C /* GAColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAColors.swift; sourceTree = "<group>"; };
+		BCA304A62A12988E002557AF /* CountryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewController.swift; sourceTree = "<group>"; };
+		BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADetailedInfoView.swift; sourceTree = "<group>"; };
 		BCD35D852A0E3C2500317225 /* Geographic atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geographic atlas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD35D882A0E3C2500317225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			children = (
 				BC878DA32A0FA38900603D7C /* GATableViewCell.swift */,
 				BC878DB12A0FFA9300603D7C /* GAAdditionalInfoView.swift */,
+				BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD35D9D2A0E41D300317225 /* CountriesListViewController.swift */,
+				BCA304A62A12988E002557AF /* CountryDetailsViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -189,7 +195,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA304A92A1332E0002557AF /* GADetailedInfoView.swift in Sources */,
 				BC878DA12A0FA20600603D7C /* UIView+additionals.swift in Sources */,
+				BCA304A72A12988E002557AF /* CountryDetailsViewController.swift in Sources */,
 				BCD35D9E2A0E41D300317225 /* CountriesListViewController.swift in Sources */,
 				BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */,
 				BC878DB42A100B7400603D7C /* GAColors.swift in Sources */,

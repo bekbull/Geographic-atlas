@@ -32,7 +32,8 @@ class GATableViewCell: UITableViewCell {
         $0.addTarget(self, action: #selector(expandButtonClicked), for: .touchUpInside)
     }
     let learnMoreButton = configure(UIButton()) {
-        $0.setTitleColor(.blue, for: .normal)
+        $0.setTitleColor(.systemBlue, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 17.0, weight: .semibold)
         $0.setTitle("Learn more", for: .normal)
     }
     let cardView: UIView = .init()
@@ -80,7 +81,7 @@ class GATableViewCell: UITableViewCell {
     
     @objc func expandButtonClicked() {
         additionalInfoView.isHidden = !additionalInfoView.isHidden
-        UIView.animate(withDuration: 0.7) { [unowned self] in
+        UIView.animate(withDuration: 0.3) { [unowned self] in
             additionalInfoView.alpha = additionalInfoView.isHidden ? 0 : 1
             expandButton.imageView?.transform = additionalInfoView.isHidden ? CGAffineTransform(rotationAngle: 0) : CGAffineTransform(rotationAngle: -3.14)
         }

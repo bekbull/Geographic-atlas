@@ -32,6 +32,65 @@ func configure<T>(_ value: T, using closure: (inout T) throws -> Void) rethrows 
 }
 
 enum Paddings {
-    static let horizontal = 20.0
-    static let top = 22.0
+    static let horizontal = 12.0
+    static let top = 15.0
+}
+
+struct OrderedDictionary<Key: Hashable, Value> {
+    private var keys: [Key] = []
+    private var values: [Key: Value] = [:]
+    
+    var count: Int {
+        return keys.count
+    }
+    
+    subscript(key: Key) -> Value? {
+        get {
+            return values[key]
+        }
+        set {
+            if let index = keys.firstIndex(of: key) {
+                if let newValue = newValue {
+                    values[key] = newValue
+                } else {
+                    keys.remove(at: index)
+                    values[key] = nil
+                }
+            } else if let newValue = newValue {
+                keys.append(key)
+                values[key] = newValue
+            }
+        }
+    }
+    
+    subscript(index: Int) -> (key: Key, value: Value) {
+        let key = keys[index]
+        let value = values[key]!
+        return (key, value)
+    }
+    
+    
+    mutating func set(_ key: Key, with value: Value) {
+        guard keys.contains(key) else {
+            keys.append(key)
+            values[key] = value
+            return
+        }
+        values[key] = value
+    }
+    func forEach(_ body: (Key, Value) -> Void) {
+        for key in keys {
+            if let value = values[key] {
+                body(key, value)
+            }
+        }
+    }
+    
+    func filter(_ isIncluded: (Key, Value) throws -> Bool) rethrows -> OrderedDictionary<Key, Value> {
+        var result = OrderedDictionary<Key, Value>()
+        for (key, value) in values where try isIncluded(key, value) {
+            result[key] = value
+        }
+        return result
+    }
 }
