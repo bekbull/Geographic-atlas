@@ -62,7 +62,13 @@ extension CountriesListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GATableViewCell.self), for: indexPath) as! GATableViewCell
         cell.selectionStyle = .none
-        cell.onExpandButtonClicked = {
+        cell.isExpanded  = self.expandedCellIndices.contains(indexPath)
+        cell.configureView()
+        print(cell.isExpanded, "VC")
+        cell.onExpandButtonClicked = { [unowned self] in
+            print(cell.isExpanded, "clicked")
+            cell.isExpanded ? self.expandedCellIndices.append(indexPath) : self.expandedCellIndices.removeAll(where: { $0 == indexPath })
+            print(self.expandedCellIndices)
             UIView.animate(withDuration: 0.3) { [unowned self] in
                 self.tableView.performBatchUpdates(nil)
             }

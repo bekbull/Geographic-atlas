@@ -38,28 +38,32 @@ class GATableViewCell: UITableViewCell {
     }
     let cardView: UIView = .init()
     let additionalInfoView: UIView = .init()
+    var isExpanded: Bool = false
     
     private let containerStackView = UIStackView()
     
     var population: String = "19 mln"
     var area: String = "2.725 mln km²"
     var currencies: String = "Tenge (₸) (KZT)\nTenge (₸) (KZT)"
+    var onExpandButtonClicked: (() -> ())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
     
-    var onExpandButtonClicked: (() -> ())?
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        isExpanded = false
+        additionalInfoView.isHidden = true
+    }
+    
     private func setupView() {
         contentView.addSubview(cellBackgroundView)
-        additionalInfoView.isHidden = true
-        additionalInfoView.alpha = 0
+        configureView()
         cellBackgroundView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.top.bottom.equalToSuperview().inset(10)
@@ -79,7 +83,14 @@ class GATableViewCell: UITableViewCell {
         configureAdditionalInfoView()
     }
     
+    func configureView() {
+        additionalInfoView.isHidden = !isExpanded
+        expandButton.imageView?.transform = !isExpanded ? CGAffineTransform(rotationAngle: 0) : CGAffineTransform(rotationAngle: -3.14)
+        additionalInfoView.alpha = isExpanded ? 1 : 0
+    }
+    
     @objc func expandButtonClicked() {
+        isExpanded = !isExpanded
         additionalInfoView.isHidden = !additionalInfoView.isHidden
         UIView.animate(withDuration: 0.3) { [unowned self] in
             additionalInfoView.alpha = additionalInfoView.isHidden ? 0 : 1
@@ -115,8 +126,8 @@ class GATableViewCell: UITableViewCell {
         expandButton.snp.makeConstraints {
             $0.right.equalToSuperview().inset(6)
             $0.centerY.equalTo(flagImageView.snp.centerY)
-            $0.width.equalTo(25)
-            $0.height.equalTo(25)
+            $0.width.equalTo(40)
+            $0.height.equalTo(40)
         }
         
         countryStackView.snp.makeConstraints {
