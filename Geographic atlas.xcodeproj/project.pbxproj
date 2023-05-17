@@ -17,6 +17,7 @@
 		BCA304A92A1332E0002557AF /* GADetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */; };
 		BCA304AC2A14A209002557AF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BCA304AB2A14A209002557AF /* Moya */; };
 		BCA304AF2A14A5EC002557AF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304AE2A14A5EC002557AF /* Country.swift */; };
+		BCA304B22A14CA13002557AF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BCA304B12A14CA13002557AF /* Kingfisher */; };
 		BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D882A0E3C2500317225 /* AppDelegate.swift */; };
 		BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */; };
 		BCD35D922A0E3C2700317225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D912A0E3C2700317225 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA304B22A14CA13002557AF /* Kingfisher in Frameworks */,
 				BCA304AC2A14A209002557AF /* Moya in Frameworks */,
 				BC878DA72A0FB37400603D7C /* SnapKit in Frameworks */,
 			);
@@ -151,6 +153,7 @@
 			packageProductDependencies = (
 				BC878DA62A0FB37400603D7C /* SnapKit */,
 				BCA304AB2A14A209002557AF /* Moya */,
+				BCA304B12A14CA13002557AF /* Kingfisher */,
 			);
 			productName = "Geographic atlas";
 			productReference = BCD35D852A0E3C2500317225 /* Geographic atlas.app */;
@@ -183,6 +186,7 @@
 			packageReferences = (
 				BC878DA52A0FB37400603D7C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BCA304AA2A14A209002557AF /* XCRemoteSwiftPackageReference "Moya" */,
+				BCA304B02A14CA13002557AF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = BCD35D862A0E3C2500317225 /* Products */;
 			projectDirPath = "";
@@ -448,6 +452,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		BCA304B02A14CA13002557AF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -460,6 +472,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCA304AA2A14A209002557AF /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		BCA304B12A14CA13002557AF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA304B02A14CA13002557AF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

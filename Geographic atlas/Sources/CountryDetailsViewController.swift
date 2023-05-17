@@ -23,11 +23,6 @@ class CountryDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
-        // Key title 15 font
-        // Value title 20 font
-        
-        // 18 points between
     }
     
     private func setupView() {
@@ -73,16 +68,7 @@ class CountryDetailsViewController: UIViewController {
         details.set("Population:", with: "19 mln")
         details.set("Area:", with: "2 724 900 km²")
         details.set("Currency:", with: "Tenge (₸) (KZT)")
-        details.set("Timezones:", with: "GMT+6")
-//            [
-//                "Region:": "Asia",
-//                "Capital:": "Astana",
-//                "Capital coordinates:": "51°08, 71º26'",
-//                "Population:": "19 mln",
-//                "Area:": "2 724 900 km²",
-//                "Currency:": "Tenge (₸) (KZT)",
-//                "Timezones:": "GMT+6"
-//            ]
+        details.set("Timezones:", with: "GMT+6\nGMT+5r")
         
         details.forEach { key, value in
             let infoView = GADetailedInfoView(content: .init(key: key, value: value))

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIView {
     func pin(to superView: UIView) {
@@ -32,8 +33,8 @@ func configure<T>(_ value: T, using closure: (inout T) throws -> Void) rethrows 
 }
 
 enum Paddings {
-    static let horizontal = 12.0
-    static let top = 15.0
+    static let horizontal = 17.0
+    static let top = 20.0
 }
 
 struct OrderedDictionary<Key: Hashable, Value> {
@@ -103,3 +104,16 @@ extension Int {
         return numberFormatter.string(from: NSNumber(value: self)) ?? ""
     }
 }
+
+//extension UIImageView {
+//    convenience init?(url: String) {
+//        let imageUrl = URL(string: url)
+//
+//        guard let url = imageUrl else {
+//            return nil
+//        }
+//        
+//        kf.setImage(with: imageUrl)
+//    }
+//}
+

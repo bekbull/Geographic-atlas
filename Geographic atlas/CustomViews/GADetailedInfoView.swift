@@ -16,7 +16,12 @@ class GADetailedInfoView: UIView {
     }
     private let valueLabel = configure(UILabel()) {
         $0.font = .systemFont(ofSize: 20)
+        $0.textColor = .label
         $0.numberOfLines = 0
+    }
+    private let bulletPoint = configure(UILabel()) {
+        $0.font = .systemFont(ofSize: 45)
+        $0.text = "\u{2022}"
     }
     
     init(content: Content) {
@@ -40,11 +45,33 @@ class GADetailedInfoView: UIView {
             ]
         )
         
-        addSubview(stackView)
-        stackView.pin(to: self)
+        let parentStackView: UIStackView = .init(
+            arrangedSubviews: [
+                bulletPoint,
+                stackView
+            ]
+        )
+        
+        addSubview(parentStackView)
         stackView.axis = .vertical
         stackView.spacing = 3
         stackView.alignment = .leading
+        
+        parentStackView.snp.makeConstraints {
+            $0.top.right.bottom.equalToSuperview()
+            $0.left.equalToSuperview().inset(10)
+        }
+        parentStackView.axis = .horizontal
+        parentStackView.spacing = 10
+        parentStackView.alignment = .top
+        
+        bulletPoint.snp.makeConstraints {
+            $0.centerY.equalTo(keyLabel).inset(5)
+        }
+        
+        keyLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+        }
     }
 
 }
