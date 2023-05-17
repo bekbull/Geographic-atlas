@@ -73,4 +73,57 @@ extension CountriesListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    func formatPopulation(country: Country) -> String {
+        let population = Double(country.population)
+        let roundedPopulation: String
+        
+        if population < 1000 {
+            roundedPopulation = "\(Int(population))"
+        } else if population < 1000000 {
+            
+            let thousands = Int(population / 1000)
+            let remainder = Int(population.truncatingRemainder(dividingBy: 1000))
+            
+            if remainder >= 500 {
+                roundedPopulation = "\(thousands + 1)K"
+            } else {
+                roundedPopulation = "\(thousands)K"
+            }
+        } else {
+            
+            let millions = Int(population / 1000000)
+            let remainder = Int(population.truncatingRemainder(dividingBy: 1000000))
+            
+            if remainder >= 500000 {
+                roundedPopulation = "\(millions + 1) mln"
+            } else {
+                roundedPopulation = "\(millions) mln"
+            }
+        }
+        
+        return roundedPopulation
+    }
+    
+    func formatArea(country: Country) -> String {
+        let area = country.area
+        let areaText: String
+        
+        if area >= 1000000 {
+            areaText = String(format: "%.3f mln km²", area/1000000)
+        } else {
+            areaText = "\(area.formattedWithSeparator()) km²"
+        }
+        return areaText
+    }
+    
+    func formatCurrencies(country: Country) -> String {
+        var currencyText = ""
+        if let currencies = country.currencies {
+            for (code, currency) in currencies {
+                currencyText += "\(currency.name ?? "") (\(currency.symbol ?? "")) (\(code))\n"
+            }
+        }
+        return currencyText
+    }
 }

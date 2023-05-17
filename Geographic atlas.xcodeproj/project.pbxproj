@@ -16,6 +16,7 @@
 		BCA304A72A12988E002557AF /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A62A12988E002557AF /* CountryDetailsViewController.swift */; };
 		BCA304A92A1332E0002557AF /* GADetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */; };
 		BCA304AC2A14A209002557AF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BCA304AB2A14A209002557AF /* Moya */; };
+		BCA304AF2A14A5EC002557AF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304AE2A14A5EC002557AF /* Country.swift */; };
 		BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D882A0E3C2500317225 /* AppDelegate.swift */; };
 		BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */; };
 		BCD35D922A0E3C2700317225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D912A0E3C2700317225 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		BC878DB32A100B7400603D7C /* GAColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAColors.swift; sourceTree = "<group>"; };
 		BCA304A62A12988E002557AF /* CountryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewController.swift; sourceTree = "<group>"; };
 		BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADetailedInfoView.swift; sourceTree = "<group>"; };
+		BCA304AE2A14A5EC002557AF /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		BCD35D852A0E3C2500317225 /* Geographic atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geographic atlas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD35D882A0E3C2500317225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		BCA304AD2A14A5DB002557AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BCA304AE2A14A5EC002557AF /* Country.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BCD35D7C2A0E3C2500317225 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		BCD35D872A0E3C2500317225 /* Geographic atlas */ = {
 			isa = PBXGroup;
 			children = (
+				BCA304AD2A14A5DB002557AF /* Models */,
 				BC878DA22A0FA34B00603D7C /* CustomViews */,
 				BC878D9F2A0FA1DD00603D7C /* Extensions+Helpers */,
 				BCD35D9C2A0E3E9700317225 /* Sources */,
@@ -206,6 +217,7 @@
 				BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */,
 				BC878DB42A100B7400603D7C /* GAColors.swift in Sources */,
 				BC878DAF2A0FF09000603D7C /* GAImages.swift in Sources */,
+				BCA304AF2A14A5EC002557AF /* Country.swift in Sources */,
 				BC878DA42A0FA38900603D7C /* GATableViewCell.swift in Sources */,
 				BC878DB22A0FFA9300603D7C /* GAAdditionalInfoView.swift in Sources */,
 				BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */,
