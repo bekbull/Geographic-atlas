@@ -15,6 +15,7 @@
 		BC878DB42A100B7400603D7C /* GAColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC878DB32A100B7400603D7C /* GAColors.swift */; };
 		BCA304A72A12988E002557AF /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A62A12988E002557AF /* CountryDetailsViewController.swift */; };
 		BCA304A92A1332E0002557AF /* GADetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA304A82A1332E0002557AF /* GADetailedInfoView.swift */; };
+		BCA304AC2A14A209002557AF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BCA304AB2A14A209002557AF /* Moya */; };
 		BCD35D892A0E3C2500317225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D882A0E3C2500317225 /* AppDelegate.swift */; };
 		BCD35D8B2A0E3C2500317225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD35D8A2A0E3C2500317225 /* SceneDelegate.swift */; };
 		BCD35D922A0E3C2700317225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD35D912A0E3C2700317225 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA304AC2A14A209002557AF /* Moya in Frameworks */,
 				BC878DA72A0FB37400603D7C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +139,7 @@
 			name = "Geographic atlas";
 			packageProductDependencies = (
 				BC878DA62A0FB37400603D7C /* SnapKit */,
+				BCA304AB2A14A209002557AF /* Moya */,
 			);
 			productName = "Geographic atlas";
 			productReference = BCD35D852A0E3C2500317225 /* Geographic atlas.app */;
@@ -168,6 +171,7 @@
 			mainGroup = BCD35D7C2A0E3C2500317225;
 			packageReferences = (
 				BC878DA52A0FB37400603D7C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BCA304AA2A14A209002557AF /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = BCD35D862A0E3C2500317225 /* Products */;
 			projectDirPath = "";
@@ -424,6 +428,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BCA304AA2A14A209002557AF /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -431,6 +443,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC878DA52A0FB37400603D7C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BCA304AB2A14A209002557AF /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA304AA2A14A209002557AF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
