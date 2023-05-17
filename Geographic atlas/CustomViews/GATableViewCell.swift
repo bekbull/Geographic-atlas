@@ -17,13 +17,12 @@ class GATableViewCell: UITableViewCell {
     
     let flagImageView = configure(UIImageView()) { imageView in
         imageView.layer.cornerRadius = 6.0
+        imageView.clipsToBounds = true
     }
     let countryNameLabel = configure(UILabel()) { label in
-        label.text = "Kazakhstan"
         label.font = .systemFont(ofSize: 17.0, weight: .semibold)
     }
     let countryCapitalCityLabel = configure(UILabel()) { label in
-        label.text = "Astana"
         label.font = .systemFont(ofSize: 13.0)
         label.textColor = .gray
     }
@@ -35,6 +34,7 @@ class GATableViewCell: UITableViewCell {
         $0.setTitleColor(.systemBlue, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 17.0, weight: .semibold)
         $0.setTitle("Learn more", for: .normal)
+        $0.addTarget(self, action: #selector(learnMoreButtonClicked), for: .touchUpInside)
     }
     let cardView: UIView = .init()
     let additionalInfoView: UIView = .init()
@@ -42,10 +42,30 @@ class GATableViewCell: UITableViewCell {
     
     private let containerStackView = UIStackView()
     
-    var population: String = "19 mln"
-    var area: String = "2.725 mln km²"
-    var currencies: String = "Tenge (₸) (KZT)\nTenge (₸) (KZT)"
+    private let populationInfoView = GAAdditionalInfoView(
+        content: .init(
+            key: "Population",
+            value: ""
+        )
+    )
+    private let areaInfoView = GAAdditionalInfoView(
+        content: .init(
+            key: "Area",
+            value: ""
+        )
+    )
+    private let currenciesInfoView = GAAdditionalInfoView(
+        content: .init(
+            key: "Currencies",
+            value: ""
+        )
+    )
+    
+//    var population: String = "19 mln"
+//    var area: String = "2.725 mln km²"
+//    var currencies: String = "Tenge (₸) (KZT)\nTenge (₸) (KZT)"
     var onExpandButtonClicked: (() -> ())?
+    private var country: Country?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,11 +79,20 @@ class GATableViewCell: UITableViewCell {
     override func prepareForReuse() {
         isExpanded = false
         additionalInfoView.isHidden = true
+        flagImageView.image = nil
+        countryNameLabel.text = nil
+        countryCapitalCityLabel.text = nil
+        [populationInfoView, areaInfoView, currenciesInfoView].forEach {
+            $0.content.value = ""
+            $0.updateContent()
+        }
+        country = nil
     }
     
     private func setupView() {
         contentView.addSubview(cellBackgroundView)
-        configureView()
+        additionalInfoView.isHidden = true
+        additionalInfoView.alpha = 0
         cellBackgroundView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.top.bottom.equalToSuperview().inset(10)
@@ -83,10 +112,24 @@ class GATableViewCell: UITableViewCell {
         configureAdditionalInfoView()
     }
     
-    func configureView() {
+    func configureView(with country: Country) {
+        self.country = country
         additionalInfoView.isHidden = !isExpanded
         expandButton.imageView?.transform = !isExpanded ? CGAffineTransform(rotationAngle: 0) : CGAffineTransform(rotationAngle: -3.14)
         additionalInfoView.alpha = isExpanded ? 1 : 0
+        
+        countryNameLabel.text = country.name?.common ?? ""
+        countryCapitalCityLabel.text = country.formattedCapitalCitites()
+        
+        flagImageView.setImage(url: country.flags.png ?? "")
+        
+        populationInfoView.content.value = country.formattedPopulation()
+        areaInfoView.content.value = country.formattedArea()
+        currenciesInfoView.content.value = country.formattedCurrencies()
+        
+        populationInfoView.updateContent()
+        areaInfoView.updateContent()
+        currenciesInfoView.updateContent()
     }
     
     @objc func expandButtonClicked() {
@@ -99,6 +142,9 @@ class GATableViewCell: UITableViewCell {
         
         onExpandButtonClicked?()
     }
+    @objc func learnMoreButtonClicked() {
+        NavigationManager.shared.showDetailedInfoViewController(cca2: country?.cca2 ?? "", title: country?.name?.common ?? "")
+    }
     
     private func configureCardView() {
         let countryStackView: UIStackView = .init(
@@ -109,7 +155,6 @@ class GATableViewCell: UITableViewCell {
         )
         countryStackView.axis = .vertical
         countryStackView.spacing = 5
-        
         cardView.addSubviews(
             flagImageView,
             countryStackView,
@@ -121,7 +166,7 @@ class GATableViewCell: UITableViewCell {
             $0.width.equalTo(100)
             $0.height.equalTo(63)
         }
-        flagImageView.backgroundColor = .red
+        flagImageView.backgroundColor = .gray
         
         expandButton.snp.makeConstraints {
             $0.right.equalToSuperview().inset(6)
@@ -140,24 +185,9 @@ class GATableViewCell: UITableViewCell {
     private func configureAdditionalInfoView() {
         let additionalInfoStackView: UIStackView = .init(
             arrangedSubviews: [
-                GAAdditionalInfoView(
-                    content: .init(
-                        key: "Population",
-                        value: population
-                    )
-                ),
-                GAAdditionalInfoView(
-                    content: .init(
-                        key: "Area",
-                        value: area
-                    )
-                ),
-                GAAdditionalInfoView(
-                    content: .init(
-                        key: "Currencies",
-                        value: currencies
-                    )
-                )
+                populationInfoView,
+                areaInfoView,
+                currenciesInfoView
             ]
         )
         additionalInfoStackView.axis = .vertical

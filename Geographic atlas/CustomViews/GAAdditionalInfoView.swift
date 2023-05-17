@@ -8,7 +8,7 @@
 import UIKit
 
 class GAAdditionalInfoView: UIView {
-    private let content: Content
+    var content: Content
     private let keyLabel = configure(UILabel()) {
         $0.font = .systemFont(ofSize: 15)
         $0.textColor = .gray
@@ -28,8 +28,7 @@ class GAAdditionalInfoView: UIView {
     }
     
     private func setupView() {
-        keyLabel.text = content.key
-        valueLabel.text = content.value
+        updateContent()
         addSubviews(keyLabel, valueLabel)
         
         keyLabel.snp.makeConstraints {
@@ -39,6 +38,10 @@ class GAAdditionalInfoView: UIView {
             $0.top.right.bottom.equalToSuperview()
             $0.left.equalTo(keyLabel.snp.right).offset(6)
         }
+    }
+    func updateContent() {
+        keyLabel.text = content.key
+        valueLabel.text = content.value
     }
 }
 

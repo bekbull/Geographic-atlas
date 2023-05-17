@@ -9,7 +9,7 @@ import UIKit
 
 class GADetailedInfoView: UIView {
 
-    private let content: Content
+    var content: Content
     private let keyLabel = configure(UILabel()) {
         $0.font = .systemFont(ofSize: 15)
         $0.textColor = .secondaryLabel
@@ -73,7 +73,10 @@ class GADetailedInfoView: UIView {
             $0.height.equalTo(20)
         }
     }
-
+    func updateContent() {
+        keyLabel.text = content.key
+        valueLabel.text = content.value
+    }
 }
 
 extension GADetailedInfoView {

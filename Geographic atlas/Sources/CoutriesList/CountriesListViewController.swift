@@ -19,10 +19,30 @@ final class CountriesListViewController: UIViewController {
         $0.dataSource = self
     }
     private var expandedCellIndices: [IndexPath] = []
+    private let viewModel: CountriesListViewModel
+    
+    init(viewModel: CountriesListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         setupView()
+        fetchAllCoutries()
+    }
+    
+    private func bind() {
+        viewModel.onFetchCountriesData = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     private func setupView() {
@@ -56,19 +76,26 @@ final class CountriesListViewController: UIViewController {
 
 extension CountriesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        viewModel.countriesOrderedDictionary.getValue(of: Continent.allCases[section].rawValue)?.count ?? 0
     }
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        Continent.allCases.count
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GATableViewCell.self), for: indexPath) as! GATableViewCell
+        
+        let countries = viewModel.countriesOrderedDictionary.getValue(
+            of: Continent.allCases[indexPath.section].rawValue
+        )
+        
         cell.selectionStyle = .none
         cell.isExpanded  = self.expandedCellIndices.contains(indexPath)
-        cell.configureView()
-        print(cell.isExpanded, "VC")
+        if let country = countries?[indexPath.row] {
+            cell.configureView(with: country)
+        }
+        
         cell.onExpandButtonClicked = { [unowned self] in
-            print(cell.isExpanded, "clicked")
             cell.isExpanded ? self.expandedCellIndices.append(indexPath) : self.expandedCellIndices.removeAll(where: { $0 == indexPath })
-            print(self.expandedCellIndices)
             UIView.animate(withDuration: 0.3) { [unowned self] in
                 self.tableView.performBatchUpdates(nil)
             }
@@ -76,60 +103,36 @@ extension CountriesListViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .white
+        
+        let titleLabel = UILabel()
+        titleLabel.text = Continent.allCases[section].rawValue
+        titleLabel.frame = CGRect(x: 16, y: 0, width: tableView.bounds.width, height: 30)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.textColor = .black
+        
+        headerView.addSubview(titleLabel)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30 // Adjust the height as needed
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let countries = viewModel.countriesOrderedDictionary.getValue(
+            of: Continent.allCases[indexPath.section].rawValue
+        )
+        guard let country = countries?[indexPath.row] else { return }
+        NavigationManager.shared.showDetailedInfoViewController(cca2: country.cca2, title: country.name?.common ?? "")
     }
-    
-    func formatPopulation(country: Country) -> String {
-        let population = Double(country.population)
-        let roundedPopulation: String
-        
-        if population < 1000 {
-            roundedPopulation = "\(Int(population))"
-        } else if population < 1000000 {
-            
-            let thousands = Int(population / 1000)
-            let remainder = Int(population.truncatingRemainder(dividingBy: 1000))
-            
-            if remainder >= 500 {
-                roundedPopulation = "\(thousands + 1)K"
-            } else {
-                roundedPopulation = "\(thousands)K"
-            }
-        } else {
-            
-            let millions = Int(population / 1000000)
-            let remainder = Int(population.truncatingRemainder(dividingBy: 1000000))
-            
-            if remainder >= 500000 {
-                roundedPopulation = "\(millions + 1) mln"
-            } else {
-                roundedPopulation = "\(millions) mln"
-            }
-        }
-        
-        return roundedPopulation
-    }
-    
-    func formatArea(country: Country) -> String {
-        let area = country.area
-        let areaText: String
-        
-        if area >= 1000000 {
-            areaText = String(format: "%.3f mln km²", area/1000000)
-        } else {
-            areaText = "\(area.formattedWithSeparator()) km²"
-        }
-        return areaText
-    }
-    
-    func formatCurrencies(country: Country) -> String {
-        var currencyText = ""
-        if let currencies = country.currencies {
-            for (code, currency) in currencies {
-                currencyText += "\(currency.name ?? "") (\(currency.symbol ?? "")) (\(code))\n"
-            }
-        }
-        return currencyText
+}
+
+private extension CountriesListViewController {
+    func fetchAllCoutries() {
+        viewModel.fetchCountries()
     }
 }

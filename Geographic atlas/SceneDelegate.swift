@@ -5,6 +5,7 @@
 //  Created by Bekbol Bolatov on 12.05.2023.
 //
 
+import Moya
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -18,9 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let navController = UINavigationController(rootViewController: CountryDetailsViewController())
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = navController
+        window?.rootViewController = NavigationManager.shared.firstViewController()
         window?.makeKeyAndVisible()
     }
     

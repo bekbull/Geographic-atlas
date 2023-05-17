@@ -79,6 +79,14 @@ struct OrderedDictionary<Key: Hashable, Value> {
         }
         values[key] = value
     }
+    
+    func getValue(of key: Key) -> Value? {
+        guard keys.contains(key) else {
+            return nil
+        }
+        return values[key]
+    }
+    
     func forEach(_ body: (Key, Value) -> Void) {
         for key in keys {
             if let value = values[key] {
@@ -106,15 +114,12 @@ extension Int {
 }
 
 extension UIImageView {
-    convenience init?(url: String) {
-        self.init()
-        let imageUrl = URL(string: url)
-
-        guard let url = imageUrl else {
-            return nil
+    func setImage(url: String) {
+        print("url", url)
+        guard let url = URL(string: url) else {
+            return
         }
-        
-        kf.setImage(with: imageUrl)
+        kf.setImage(with: url)
     }
 }
 
