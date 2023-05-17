@@ -105,15 +105,16 @@ extension Int {
     }
 }
 
-//extension UIImageView {
-//    convenience init?(url: String) {
-//        let imageUrl = URL(string: url)
-//
-//        guard let url = imageUrl else {
-//            return nil
-//        }
-//        
-//        kf.setImage(with: imageUrl)
-//    }
-//}
+extension UIImageView {
+    convenience init?(url: String) {
+        self.init()
+        let imageUrl = URL(string: url)
+
+        guard let url = imageUrl else {
+            return nil
+        }
+        
+        kf.setImage(with: imageUrl)
+    }
+}
 
